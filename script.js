@@ -23,10 +23,19 @@ symbols.forEach((symbol) => {
         displayCompSymbol.textContent = `Computer chose: ${comp}`;
         displayResult.textContent = `${result}`
 
-        if (playerScore === 5 || compScore === 5) {
-            alert("win");
-            playerScore = 0;
-            compScore = 0;
+        if (playerScore === 5) {
+            setTimeout(() => {
+                alert("You Win! Click any symbol to play again.");
+                playerScore = 0;
+                compScore = 0;
+            }, 500)
+        }
+        else if (compScore === 5) {
+            setTimeout(() => {
+                alert("You Lose! Click any symbol to play again.");
+                playerScore = 0;
+                compScore = 0;
+            }, 500)
         }
     })
 })

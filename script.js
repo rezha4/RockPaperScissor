@@ -1,24 +1,41 @@
+//forEach error (arrow malformed) SOLVE LATER
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissor = document.querySelector('#scissor');
+const arena = document.querySelector('.arena');
+let playerScore = 0;
 
+rock.addEventListener('click', () => {
+    console.log(rock.id);
+    const select = document.createElement('h1');
+    select.textContent = "you chose ROCK"
+    arena.appendChild(select);
+    setTimeout(() => {
+        arena.removeChild(select);
+    }, 2000);
+    playerScore += 1;
 
+    const score = document.querySelector('#playerScore');
+    console.log(score);
+    score.textContent = `Player: ${playerScore}`
+    
+    if (playerScore == 5) {
+        setTimeout(() => {
+            alert("WIN WIN");
+            playerScore = 0;
+            score.textContent = `Player: ${playerScore}`
+        }, 500);
+        
+    };
+})
 
+paper.addEventListener('click', () => {
+    console.log(paper.id);
+})
+scissor.addEventListener('click', () => {
+    console.log(scissor.id);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+})
 
 
 

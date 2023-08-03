@@ -25,6 +25,8 @@ symbols.forEach((symbol) => {
 
         if (playerScore === 5 || compScore === 5) {
             alert("win");
+            playerScore = 0;
+            compScore = 0;
         }
     })
 })

@@ -5,28 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors!</title>
     <link rel="stylesheet" href="./styles.css"></link>
-    <script src="./script.js"></script>
+    <script defer src="./script.js"></script>
 </head>
+
 <body>
     <div class="background">
+
         <div class="heading">
             <h1>Rock, Paper, Scissors!
                 <br>First to 5 wins!
             </h1>
             <h2>Scores</h2>
         </div>
-        <div class="scores">
-            <p>Player: </p>
-            <p>Computer: </p>
-        </div>
-        <div class="arena">
 
+        <div class="scores">
+            <h2 id="playerScore"></h2>
+            <h2 id="compScore"></h2>
         </div>
+
+        <div class="arena">
+            <h2 id="playerChose"></h2>
+            <h2 id="compChose"></h2>
+            <h2 id="result"></h2>
+        </div>
+
         <div class="buttons">
-            <div id="rock"><img src="./img/rock.jpg" alt="rock"></div>
-            <div id="paper"><img src="./img/paper.jpg" alt="paper"></div>
-            <div id="scissor"><img src="./img/scissor.jpg" alt="scissor"></div>
+            <div><img id="rock" src="./img/rock.jpg" alt="rock"></div>
+            <div><img id="paper" src="./img/paper.jpg" alt="paper"></div>
+            <div><img id="scissor" src="./img/scissor.jpg" alt="scissor"></div>
         </div>
+
     </div>
 </body>
 </html>

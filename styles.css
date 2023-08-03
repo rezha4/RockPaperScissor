@@ -10,7 +10,7 @@ body {
 }
 
 .background {
-    background-color: rgb(255, 255, 255, .95);
+    background-color: rgb(255, 255, 255, .9);
     border: 8px solid #fecd4c;
     width: 90%;
     height: 700px;
@@ -32,6 +32,7 @@ body {
 }
 
 .arena {
+    text-align: center;
     border: 4px solid #fecd4c;
     height: 200px;
     width: 400px;

@@ -1,40 +1,32 @@
-//forEach error (arrow malformed) SOLVE LATER
-const rock = document.querySelector('#rock');
-const paper = document.querySelector('#paper');
-const scissor = document.querySelector('#scissor');
-const arena = document.querySelector('.arena');
+const symbols = document.querySelectorAll('img');
 let playerScore = 0;
+let compScore = 0;
+const displayPlayerScore = document.querySelector('#playerScore');
+const displayCompScore = document.querySelector('#compScore');
 
-rock.addEventListener('click', () => {
-    console.log(rock.id);
-    const select = document.createElement('h1');
-    select.textContent = "you chose ROCK"
-    arena.appendChild(select);
-    setTimeout(() => {
-        arena.removeChild(select);
-    }, 2000);
-    playerScore += 1;
+displayPlayerScore.textContent = `Player: ${playerScore}`;
+displayCompScore.textContent = `Computer: ${compScore}`;
 
-    const score = document.querySelector('#playerScore');
-    console.log(score);
-    score.textContent = `Player: ${playerScore}`
-    
-    if (playerScore == 5) {
-        setTimeout(() => {
-            alert("WIN WIN");
-            playerScore = 0;
-            score.textContent = `Player: ${playerScore}`
-        }, 500);
-        
-    };
-})
+const displayPlayerSymbol = document.querySelector("#playerChose");
+const displayCompSymbol = document.querySelector("#compChose");
+const displayResult = document.querySelector("#result");
 
-paper.addEventListener('click', () => {
-    console.log(paper.id);
-})
-scissor.addEventListener('click', () => {
-    console.log(scissor.id);
+symbols.forEach((symbol) => {
+    symbol.addEventListener('click', () => {
+        let comp = RandomizeComputerChoice();
+        result = game(symbol.id, comp);
 
+        displayPlayerScore.textContent = `Player: ${playerScore}`;
+        displayCompScore.textContent = `Computer: ${compScore}`;
+
+        displayPlayerSymbol.textContent = `Player chose: ${symbol.id}`;
+        displayCompSymbol.textContent = `Computer chose: ${comp}`;
+        displayResult.textContent = `${result}`
+
+        if (playerScore === 5 || compScore === 5) {
+            alert("win");
+        }
+    })
 })
 
 
@@ -55,21 +47,27 @@ function RandomizeComputerChoice() {
 
 function playRound(playerSeletion, computerSelection) {
     if (playerSeletion.toLowerCase() === "rock" && computerSelection === "paper") {
+        compScore += 1;
         return "You lose! Paper beats rock!";
     }
     else if (playerSeletion.toLowerCase() === "paper" && computerSelection === "scissor") {
+        compScore += 1;
         return "You lose! Scissor beats paper!";
     }
     else if (playerSeletion.toLowerCase() === "scissor" && computerSelection === "rock") {
+        compScore += 1;
         return "You lose! Rock beats scissor!";
     }
     else if (playerSeletion.toLowerCase() === "paper" && computerSelection === "rock") {
+        playerScore += 1;
         return "You win! Paper beats rock!";
     }
     else if (playerSeletion.toLowerCase() === "scissor" && computerSelection === "paper") {
+        playerScore += 1;
         return "You win! Scissor beats paper!";
     }
     else if (playerSeletion.toLowerCase() === "rock" && computerSelection === "scissor") {
+        playerScore += 1;
         return "You win! Rock beats scissor!";
     }
     else {
@@ -77,18 +75,10 @@ function playRound(playerSeletion, computerSelection) {
     };
 };
 
-function game() {
-    let playerSeletion = "";
-    do {
-        playerSeletion = prompt("rock/paper/scissor?");
-    }
-    while (playerSeletion.toLowerCase() != "rock" && playerSeletion.toLowerCase() != "paper" && playerSeletion.toLowerCase() != "scissor");
-
-    let computerSelection = RandomizeComputerChoice();
-    console.log(`Computer choses ${computerSelection}`);
-
+function game(playerSeletion, computerSelection) {
     let resultOf = playRound(playerSeletion, computerSelection);
-    console.log(resultOf);
+
+    return resultOf;
 };
 
 //pseudocode:
